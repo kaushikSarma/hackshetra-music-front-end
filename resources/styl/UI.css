@@ -1,0 +1,92 @@
+*{
+    box-sizing: content-box;
+}
+::-webkit-scrollbar{
+    width: 4px;
+}
+
+::-webkit-scrollbar-track-piece{
+    width: 4px;
+    background-color: black;
+}
+body{
+    height: 100vh;
+    overflow-x: hidden;
+}
+.display{
+    height: 100vh;
+}
+
+.playlist{
+    float: right;
+}
+.playlist > .box-content {
+    color: black;
+    height: 92vh;
+    overflow-y: scroll;
+}
+.playlist > .box-content > ul > li{
+    cursor: pointer !important;
+    position: relative;
+}
+.playlist > .box-content > ul > li > a {
+    z-index: 1 !important;
+}
+.playlist > .box-content > ul > li > a::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: -100%;
+    opacity: 0.5;
+    background-color: #0b090a;
+    z-index: -1 !important;
+    -webkit-transition: all 0.5s cubic-bezier(.89,.13,.34,.91);
+    -moz-transition: all 0.5s cubic-bezier(.89,.13,.34,.91) ;
+    -ms-transition: all 0.5s cubic-bezier(.89,.13,.34,.91) ;
+    -o-transition: all 0.5s cubic-bezier(.89,.13,.34,.91) ;
+    transition: all 0.5s cubic-bezier(.89,.13,.34,.91) ;
+}
+.playlist > .box-content > ul > li:hover > a::before{
+    left: 0;
+}
+
+.playlist::-webkit-scrollbar{
+    float: left;
+}
+.playlist::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+.chat-box {
+    z-index: 5;
+    position: fixed;
+    width: 400px;
+    margin: 0!important;
+    height: 100vh;
+}
+.display{
+    margin: 0!important;
+}
+.chat-box > form {
+    padding: 5px;
+    margin: 0;
+    position: absolute !important;
+    bottom: 0px !important;
+    width: 400px !important;
+}
+.chat-box > form > input{
+    width: 360px;
+}
+.chat-box > .dark{
+    left: 0;
+    z-index: -1;
+    height: 70vh;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@media (max-width: 767px) {
+    .playlist{
+        margin-left: 0 !important;
+    }
+}
