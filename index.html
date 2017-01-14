@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Music</title>
-
     <!-- start: CSS -->
     <link href="node_modules/bootstrap3/dist/css/bootstrap.css" rel="stylesheet">
-    <link id="bootstrap-style" href="resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- end: CSS -->
     <style>
         body{
@@ -20,13 +18,14 @@
         .box-content > div{
             position: relative;
             display: inline-block;
+            margin: 40px;
             height: 200px;
             width: 300px;
             cursor: pointer;
             vertical-align: text-top;
             transition: all 0.5s;
         }
-        .box-content > div > form{
+        .box-content > div > div{
             background-color: #0a0c0e;
             position: absolute;
             width: 300px;
@@ -44,7 +43,7 @@
             transform: scale(1.1);
             color: #FFCDD2;
         }
-        .box-content > div:hover > form {
+        .box-content > div:hover > div {
             opacity: 1;
             top: 0;
         }
@@ -60,6 +59,16 @@
             background-color: transparent !important;
             color: orange !important;
         }
+        .submit{
+            cursor: pointer;
+            background-color: #3efd67;
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            margin-left: 80px;
+            font-weight: 900;
+        }
     </style>
 </head>
 <body>
@@ -72,29 +81,41 @@
                 <div class="login-option">
                     <i class="glyphicon glyphicon-bullhorn"></i>
                     <h3>It's my party</h3>
-                    <form method="post">
+                    <div>
                         <div class="form-row">
                             <label>Who am I ?</label>
-                            <input name="user-name" type="text"/>
+                            <input id="HostName" type="text"/>
                         </div>
-                        <div class="form-row">
-                            <label>How do I know it's you</label>
-                            <input name="user-name" type="password"/>
-                        </div>
-                    </form>
+                        <div class="submit" onclick="CheckHost()">Get goin</div>
+                    </div>
                 </div>
                 <div class="login-option">
                     <i class="glyphicon glyphicon-cutlery"></i>
                     <h3>I was invited here</h3>
+                    <div>
+                        <div class="form-row">
+                            <label>How about a Nickname?</label>
+                            <input id="UserName" type="text"/>
+                        </div>
+                        <div class="submit" onclick="CheckUser()">Get goin</div>
+                        <p>P.S. nicknames are fun</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- start: JavaScript-->
-    
     <script src="resources/js/jquery-1.9.1.min.js"></script>
     <script src="resources/js/jquery-migrate-1.0.0.min.js"></script>
     <!-- end: JavaScript-->
-
+    <script>
+          function CheckHost(){
+              if($('#HostName').val() === 'We Planned it') {
+                  var url = window.location.href,
+                      index = url.lastIndexOf('/');
+                  window.location.href = url.substr(0, index) + '/user/index.html';
+              }
+          }
+    </script>
 </body>
 </html>

@@ -16,14 +16,20 @@ body{
 .display{
     height: 100vh;
 }
-
 .playlist{
-    float: right;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: auto;
+    position: fixed;
 }
 .playlist > .box-content {
     color: black;
     height: 92vh;
     overflow-y: scroll;
+}
+.playlist > .box-content > ul {
+    padding-bottom: 20px;
 }
 .playlist > .box-content > ul > li{
     cursor: pointer !important;
@@ -59,15 +65,32 @@ body{
     background-color: transparent;
 }
 .chat-box {
-    z-index: 5;
+    z-index: 99;
     position: fixed;
-    width: 400px;
+    left: -100vw;
     margin: 0!important;
     height: 100vh;
     overflow: hidden;
 }
-.display{
-    margin: 0!important;
+.chat-now {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    font-size: 50px;
+    cursor: pointer;
+}
+.chat-box > .chats > h1 > .icon{
+    float: right;
+    font-weight: 100;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s ;
+    -ms-transition: all 0.5s ;
+    -o-transition: all 0.5s ;
+    transition: all 0.5s ;
+}
+.chat-box > .chats > h1 > .icon:hover{
+    color: #00b3ee;
+    cursor: pointer;
 }
 .chat-box > form {
     padding: 5px;
@@ -89,6 +112,10 @@ body{
     height: 84vh;
     overflow-x: hidden;
     overflow-y: scroll;
+}
+.display{
+    margin: 0!important;
+    border: none !important;
 }
 @media (max-width: 767px) {
     .playlist{
