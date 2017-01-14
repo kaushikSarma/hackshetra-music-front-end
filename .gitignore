@@ -1,0 +1,8 @@
+#dependencies
+node_modules
+
+#webstorm data
+.idea
+
+#git data
+.git

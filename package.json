@@ -1,0 +1,26 @@
+{
+  "name": "hackshetra-music-front-end",
+  "version": "1.0.0",
+  "description": "Utility application for organising parties",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaushikSarma/hackshetra-music-front-end.git"
+  },
+  "author": "Kaushik Sarma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaushikSarma/hackshetra-music-front-end/issues"
+  },
+  "homepage": "https://github.com/kaushikSarma/hackshetra-music-front-end#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "d3": "^4.4.1",
+    "gsap": "^1.19.0",
+    "jquery": "^3.1.1",
+    "stylus": "^0.54.5"
+  }
+}
