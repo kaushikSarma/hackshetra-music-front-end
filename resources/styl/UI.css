@@ -22,7 +22,6 @@ body{
     top: 0;
     height: 100vh;
     width: auto;
-    position: fixed;
     text-align: left;
     border: 0;
 }
@@ -172,6 +171,13 @@ div.eyes > div::after{
 
 div.eyes > div:nth-child(1) {
     margin-right: 50px;
+}
+.smiley{
+    stroke-dashoffset: 100%;
+    stroke-dasharray: 100%;
+    stroke-width: 15px;
+    stroke: yellow;
+    fill: none;
 }
 
 @media (max-width: 767px) {
