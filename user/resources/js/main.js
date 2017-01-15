@@ -67,9 +67,51 @@
                     Functions.ToSad();
                 }
             });
-        }
+        },
+        FetchPlaylist: function(){
+            $.ajax({
+                type: 'get',
+                url: '/playList',
+                onSuccess: Functions.RenderList
+            });
+        },
+        GenerateDuration: function(){
+            var d = {
+                min: Math.floor((Math.random() * 10) + 3),
+                sec: Math.floor((Math.random() * 55) + 5)
+            };
+            return d;
+        },
+        RenderList: function(data){
+            console.log(data);
+            for (var i = 1; i < data.length; i++){
+                var duration = Functions.GenerateDuration();
+                var song = $('<li class="song" data-source="' + data[i].Url + '" id="' + data[i].Id + '"><a><img/></a>'
+                          + '<div class="song-info"><strong>Song</strong> ' + data[i].Song + ' <br/><strong>Duration</strong>' + duration.min + 'm ' + duration.sec + 's <div></div></div></li>');
+                console.log(song);
+                $Objects.PlayListContainer.append(song);
+            }
+        },
+        Play: function(){
+
+        },
+        UpVote: function(id){
+            $.ajax({
+                type: 'post',
+                url: '/playList/increase',
+                data: id
+            });
+        },
+        DownVote: function(id){
+            $.ajax({
+                type: 'post',
+                url: '/playList/Decrease',
+                data: id
+            });
+        },
     };
     $d.ready(function(){
+        $Objects.PlayListContainer = $('.dashboard-list');
         $Objects.Expression[0] = $('#happy');
         $Objects.Expression[1] = $('#angry');
         $Objects.Expression[2] = $('#sad');
@@ -89,5 +131,13 @@
                 });
             });
           Functions.ToSad();
+        $('.icon-thumbs-up').on('click', function(event){
+            var id = $(event.target).closest('li').attr('id');
+            Functions.Upvote(id);
+        });
+        $('.icon-thumbs-down').on('click', function(event){
+            var id = $(event.target).closest('li').attr('id');
+            Functions.DownVote(id);
+        });
     });
 })(jQuery(document), jQuery(window), jQuery, TweenMax);

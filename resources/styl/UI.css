@@ -6,9 +6,15 @@
 }
 
 ::-webkit-scrollbar-track-piece{
-    width: 4px;
-    background-color: black;
+    width: 2px;
+    background-color: #2B5797;
 }
+
+::-webkit-scrollbar-thumb{
+    width: 4px;
+    background-color: orange;
+}
+
 body{
     height: 100vh;
     overflow-x: hidden;
@@ -49,6 +55,7 @@ body{
     top: 100%;
     left: 0;
     background-color: #2B5797;
+    opacity: 0;
     z-index: -1 !important;
     -webkit-transition: all 0.5s cubic-bezier(.91,.89,.13,.34);
     -moz-transition: all 0.5s cubic-bezier(.91,.89,.13,.34) ;
@@ -58,14 +65,42 @@ body{
 }
 .playlist > .box-content > ul > li:hover > a::before{
     top: 0;
+    opacity: 1;
+}
+.playlist > .box-content > ul > li:hover > .song-info > .music-rating > .icon{
+    color: #ffffff;
 }
 
-.playlist::-webkit-scrollbar{
-    float: left;
+.song-info > .music-rating{
+    display: inline-block;
+    float: right;
+    color: #2B5797;
 }
-.playlist::-webkit-scrollbar-track{
-    background-color: transparent;
+.song-info > .music-rating > .icon{
+    display: inline-block;
+    position: relative;
+    color: #2B5797;
+    font-size: 1.6rem;
+    margin-right: 10px;
+    transition: all 0.5s;
 }
+.song-info > .music-rating > .icon::after{
+    content: "00";
+    color: white;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    opacity: 0.5;
+    font-family: 'SegoeUI Light', sans-serif;
+}
+.music-rating > .icon:hover{
+    transform: scale(1.05);
+    color: yellow !important;
+}
+audio{
+    width: 80%;
+}
+/*Chat box UI*/
 .chat-box {
     z-index: 99;
     position: fixed;
@@ -126,6 +161,8 @@ body{
 .timeslot{
     height: auto;
 }
+
+/*Party moods show*/
 .display{
     margin: 0!important;
     border: none !important;
@@ -141,7 +178,6 @@ div.face > div.eyes{
     width: 100%;
     margin: 30px auto !important;
 }
-
 div.face > div.eyes > div{
     position: relative;
     display: inline-block;
